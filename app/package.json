@@ -1,7 +1,7 @@
 {
   "name": "piggy",
   "productName": "piggy",
-  "version": "0.21.0",
+  "version": "0.30.0",
   "description": "Tooling for mobile developers",
   "license": "MIT",
   "author": {
@@ -94,14 +94,20 @@
   },
   "build": {
     "appId": "com.nerdwallet.piggy",
-    "copyright": "Copyright © 2019-2022 NerdWallet, Inc.",
+    "copyright": "Copyright © 2022 NerdWallet, Inc.",
     "afterSign": "script/notarize.js",
     "mac": {
       "category": "public.app-category.developer-tools",
       "hardenedRuntime": true,
       "gatekeeperAssess": true,
       "entitlements": "script/entitlements.mac.plist",
-      "entitlementsInherit": "script/entitlements.mac.plist"
+      "entitlementsInherit": "script/entitlements.mac.plist",
+      "bundleVersion": "dev",
+      "target": [
+        "zip"
+      ],
+      "type": "distribution",
+      "artifactName": "${name}-${version}-${os}.${ext}"
     },
     "files": [
       "build/**/*"
